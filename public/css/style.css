@@ -1,0 +1,309 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #d3c9c9;
+}
+
+select {
+    font-family: 'FontAwesome', 'sans-serif';
+  }
+
+header, footer {
+    padding: 1rem;
+    background-color: #f0f3b5;
+}
+
+
+
+/*** NavBar ***************************/
+#main-nav-bar-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center center;
+    flex-wrap: wrap;
+}
+
+#main-nav-bar-wrapper > div {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+   /* border: 1px solid red;*/
+    flex-wrap: wrap;
+    margin-bottom: 0.2em;
+}
+
+#main-nav-bar-wrapper > div:last-child {
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+}
+
+#main-nav-bar-wrapper > div:first-child {
+   margin-left: 1em;
+ 
+}
+
+a#logo-lego {
+    display: block;
+    width: 12vh;
+    margin: 0.3rem;
+}
+
+.nav-bar-link ul {
+ /*  border: 1px solid red;*/
+}
+
+.nav-bar-link ul li{
+    display: inline;
+    list-style-type: none;
+    margin-right: 1.5em;
+    margin-left: 0.5em;
+    line-height: 1.18rem;
+    white-space: nowrap;
+}
+
+.nav-bar-link ul li a {
+    color: #000000;
+    font-weight: 500;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-bar-link ul li a span:hover {
+    color: #000000;
+    font-weight: 500;
+    font-size: 1em;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000000;
+}
+
+.nav-bar-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  /*  border: 1px solid green;*/
+    flex-wrap: wrap;
+    margin-right: 1em;
+}
+
+.nav-bar-option > #search-button, .users-show-button, .users-account-manager {
+    margin-right: 1.3em;
+}
+
+.nav-bar-option > #search-button {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    margin-right: 2em;
+}
+
+.users-show-button > svg.bi.bi-people-fil {
+    color: #a29f9f !important;
+}
+
+.users-account-manager #users-account-manager-list {
+    font-size: 1em;
+    padding: 5px;
+  /*  border: 1px solid gray;*/
+}
+
+
+/**** Main Wrapper ****/
+
+#main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center center;
+    flex: 1;
+    max-width: 125rem;
+    width: 75%;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid red;
+    background-color: #ffffff;
+}
+
+.titreTousLesEchanges{
+    border: 1px solid blue;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    color: #ffffff;
+    padding: 1.5em 0 1.5em 1em;
+    background-color: #000000;
+}
+
+.main-wrapper-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-wrapper-content .lego-exchanged-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 5%;
+  padding: 5px;
+}
+
+.main-wrapper-content .lego-exchanged-item:hover {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(255, 217, 0);
+    border-radius: 5%;
+    padding: 5px;
+    scale: 1.5em;
+  }
+
+.lego-exchanged-item .lego-exchanged-property {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(214, 213, 209);
+    padding: 1px;
+}
+
+.lego-exchanged-item .lego-exchanged-property:hover {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid rgb(250, 215, 75);
+    padding: 1px;
+}
+
+.lego-exchanged-property img {
+    max-width: 8rem;
+    width: 100%;
+}
+
+.lego-exchanged-property .details{
+  flex: 1;
+}
+
+.lego-exchanged-property .details ul{
+   list-style-type: none;
+   font-size: 1.1rem;
+   font-weight: 600;
+   display: flex;
+   flex-direction: column;
+   gap: 1em;
+}
+
+.nextImg{
+    max-width: 115rem;
+    max-height:110rem;
+    width: 100px;
+    height: 100px;
+    background-image: url("../assets/arrowNext.png");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    margin: 5px;
+}
+
+.nextImg:hover{
+    max-width: 105rem;
+    max-height:105rem;
+    width: 100px;
+    height: 100px;
+  /**  border: 2px solid green;*/
+    background-image: url("../assets/arrowNextHover.png");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    cursor: pointer;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+/**#main-nav-bar-wrapper > div{
+    border: 1px solid black;
+   display: flex;
+   justify-content: row;
+}*/
+
+      
+  #search-button svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    max-width: 125rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/**
+h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    max-width: 25rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+#todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#todo-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+#todo-list p {
+    margin: 0;
+}
+
+#todo-form {
+    display: flex;
+}
+
+#todo-text {
+    width: 100%;
+    padding: .5rem;
+}
+
+input[type=checkbox]:checked + p {
+    text-decoration: #a00 line-through;
+}
+*/
