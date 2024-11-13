@@ -1,0 +1,45 @@
+<div class="main-wrapper-TODOS-BRICS"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12" style="border: 1px solid black;">
+            <div class="card-deck row">
+                {{#each tousLesbriques}}
+                <div class="card col-md-3">
+                    <img class="card-img-top" src="/assets/{{this.image}}" alt="Card image cap">
+                    <div class="card-body">
+                        <small class="text-muted">{{this.nomBrique}}</small>
+                        <div class="card-body-contain">
+                            <div>
+                                <form id="litle-form-lego">
+                                    <div class="form-group">
+                                        <small class="text-muted">Quantite:</small>
+                                        <input type="number" class="form-control form-control-sm" id="nombreEchange"
+                                            name="number" min="1" max="1000" />
+                                        <small class="text-muted">Nom d'Echange:</small>
+                                        <input type="text" class="form-control form-control-sm" id="nomEchange"
+                                            placeholder="Saisir votre nom echange" value="{{this.nomBrique}}" disabled>
+                                    </div>
+                            </div>&nbsp;
+                            <div class="row"><button type="button" class="btn btn-light btn-lg" data-toggle="button"
+                                    aria-pressed="false" autocomplete="off">
+                                    OK
+                                </button></div>&nbsp;
+                            <div class="row"><button type="button" class="btn btn-danger btn-lg" data-toggle="button"
+                                    aria-pressed="false" autocomplete="off">
+                                    Annuler
+                                </button></div>&nbsp;
+                        </div>
+                        <div class="row"><button type="button" class="btn btn-primary btn-lg creer-un-echange" 
+                                data-toggle="button" aria-pressed="false" autocomplete="off">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

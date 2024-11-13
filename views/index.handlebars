@@ -1,0 +1,22 @@
+ <div id="main-wrapper-content"></div>
+{{#each echangesActifs}}
+  <div class="lego-exchanged-item">
+    <div class="lego-exchanged-property">
+        <img src="/assets/{{this.image}}" alt="inego vleb" />
+        <div class="details">
+            <ul>
+                <li>{{this.nomBrique}}</li>
+                <li>$ {{this.valeur}}</li>
+            </ul>
+        </div>
+         <div class="nextImg"><a href="/api/legoEchangeDetails/{{this.id_brique}}"></a></div>    
+    </div>
+    <div class="user-exchanged">
+        <div>
+            <span>{{this.nom}}</span>
+        </div>
+    </div>
+  </div>
+{{/each}}
+</div>
+ 

@@ -8,14 +8,14 @@ async function createDatabase(connexion) {
     await connexion.exec(
         `CREATE TABLE couleur (
             id_couleur INTEGER PRIMARY KEY,
-            nom TEXT NOT NULL
+            nomCouleur TEXT NOT NULL
         );
         
         CREATE TABLE brique (
             id_brique INTEGER PRIMARY KEY,
             id_couleur INTEGER,
             id_design NOT NULL,
-            nom TEXT NOT NULL,
+            nomBrique TEXT NOT NULL,
             image TEXT NOT NULL,
             valeur REAL NOT NULL,
             FOREIGN KEY(id_couleur) REFERENCES couleur(id_couleur)
@@ -33,16 +33,18 @@ async function createDatabase(connexion) {
         CREATE TABLE echange (
             id_echange INTEGER PRIMARY KEY,
             id_utilisateur INTEGER NOT NULL,
-            id_proposition_accepte INTEGER,
+            id_proposition INTEGER,
             nom_echange TEXT,
             FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id_utilisateur),
-            FOREIGN KEY(id_proposition_accepte) REFERENCES proposition(id_proposition)
+            FOREIGN KEY(id_proposition) REFERENCES proposition(id_proposition)
         );
         
         CREATE TABLE proposition (
             id_proposition INTEGER PRIMARY KEY,
             id_echange INTEGER NOT NULL,
-            FOREIGN KEY(id_echange) REFERENCES echange(id_echange)
+            id_utilisateur INTEGER NOT NULL,
+            FOREIGN KEY(id_echange) REFERENCES echange(id_echange),
+            FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id_utilisateur)
         );
         
         CREATE TABLE echange_brique (
@@ -63,7 +65,7 @@ async function createDatabase(connexion) {
             FOREIGN KEY(id_brique) REFERENCES brique(id_brique)
         );
         
-        INSERT INTO couleur (nom) VALUES
+        INSERT INTO couleur (nomCouleur) VALUES
         ('rouge'),
         ('jaune'),
         ('bleu'),
@@ -71,7 +73,7 @@ async function createDatabase(connexion) {
         ('blanc'),
         ('noir');
 
-        INSERT INTO brique (id_couleur, id_design, nom, image, valeur) VALUES
+        INSERT INTO brique (id_couleur, id_design, nomBrique, image, valeur) VALUES
         (1, 3003, 'Brique 2X2 rouge', 'brique-2x2-rouge.jpg', 0.17),
         (2, 3003, 'Brique 2X2 jaune', 'brique-2x2-jaune.jpg', 0.17),
         (3, 3003, 'Brique 2X2 bleu', 'brique-2x2-bleu.jpg', 0.17),
@@ -97,8 +99,45 @@ async function createDatabase(connexion) {
         (2, 6141, 'Plaque ronde 1X1 jaune', 'plaque-ronde-1x1-jaune.jpg', 0.06),
         (5, 3062, 'Brique ronde 1X1 blanc', 'brique-ronde-1x1-blanc.jpg', 0.08);
         
-        INSERT INTO utilisateur (courriel, nom, prenom, mot_de_passe, acces)
-        VALUES ('test@test.com', 'Christiansen', 'Ole Kirk', 'Test1234', 1);`
+        INSERT INTO utilisateur (courriel, nom, prenom, mot_de_passe, acces) VALUES
+        ('test@test.com', 'Christiansen', 'Ole Kirk', 'Test1234', 1),
+        ('brian@test.com', 'briayan', 'Ole Kirk', 'Test1234', 1),
+        ('AlbinDuclair@hotmail.com', 'Albin', 'DuClair', 'Albin54', 4),
+        ('romaricmontelier@gmail.com', 'Romaric', 'montelier', 'ro-Montelier', 5),
+        ('frederickDu-ciel@gmail.com', 'Frederic', 'Du-Ciel', 'fred237', 2),
+        ('camilleTraore@yahoo.com', 'Camille', 'traore', 'tro781', 3),
+        ('francklindubois@test.com', 'Francklin', 'dubois', 'dubois2024', 1);
+
+        INSERT INTO echange (id_utilisateur, id_proposition, nom_echange) VALUES
+        (1, 2, 'Francklin'),
+        (3, 4, 'Emmanuel'),
+        (5, 1, 'Christiansen'),
+        (2, 3, 'Romaric'),
+        (4, 5, 'Albin');
+
+        INSERT INTO echange_brique (id_echange, id_brique, quantite) VALUES
+        (2, 3, 2),
+        (1, 5, 1),
+        (4, 1, 4),
+        (2, 2, 2),
+        (3, 3, 3),
+        (2, 4, 1);
+
+        INSERT INTO proposition (id_echange, id_utilisateur) VALUES
+        (2, 1),
+        (1, 3),
+        (4, 1),
+        (2, 5),
+        (3, 1);
+
+        INSERT INTO proposition_brique (id_proposition, id_brique, quantite) VALUES
+        (2, 3, 2),
+        (1, 5, 1),
+        (4, 1, 4),
+        (3, 2, 2),
+        (5, 3, 3),
+        (2, 4, 1);
+      `
     );
 
     return connexion;

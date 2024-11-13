@@ -1,0 +1,41 @@
+<div class="main-wrapper-TODOS-BRICS"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 col-sm-12" style="border: 1px solid black;">
+            {{#each tousmesechangecourant}}
+            <div class="card detail-lego" style="auto">
+                <img class="" src="/assets/{{this.image}}" alt="{{this.nomBrique}}">
+                <div class="lego">
+                    <ul class="card-body lego-details">
+                        <li class="list-group-item">Nom echange: {{this.nomBrique}}</li>
+                        <li class="list-group-item">nbre de pieces Ajouter: {{this.acces}}</li>
+                        <li class="list-group-item">Couleur: {{this.nomCouleur}}</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">Utilisateur proposant: {{this.nom}}&nbsp;{{this.prenom}}</li>
+                    </ul>
+                    <div class="card-body users-detail">
+                        <a href="#" class="card-link">Tous Supprimer</a>
+                        <a href="#" class="card-link">Supprimer -1</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="col-lg-3 col-sm-12" style="border: 1px solid black;">
+            <div class="card-header">
+                Featured
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">A simple default list group item</li>
+                <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
